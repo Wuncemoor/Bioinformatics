@@ -23,9 +23,9 @@ def translate_dna(dna):
 		r'GGT':'G', r'GGC':'G', r'GGA':'G', r'GGG':'G'
 	}
 	for codons in dna:
-		codon = dna[i:i+3]
+		codon = dna[i:i+3].upper()
 		if len(codon) == 3:
-			protein = codon2prot.get(codon)
+			protein = codon2prot.get(codon, 'X')
 			dnasplit.append(codon)
 			proteinseq = proteinseq + protein
 			i = i+3
@@ -33,4 +33,4 @@ def translate_dna(dna):
 			extracodonjunk.append(codon)
 			break
 	return proteinseq
-print(translate_dna('ATGCATCGACTACGACTACG'))
+print(translate_dna('atgnatcagcat'))
